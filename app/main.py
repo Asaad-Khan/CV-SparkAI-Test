@@ -7,6 +7,7 @@ import torch.nn as nn
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from pydantic import BaseModel
 from PIL import Image
+import os
 
 from src.config import CFG
 from src.data.transforms import build_eval_transforms
@@ -62,9 +63,10 @@ class PredictResponse(BaseModel):
 app = FastAPI(title="Flowers102 Classifier API", version="1.0")
 
 # Minimal config (can be moved to env vars later)
-MODEL_NAME = "resnet18"
-CKPT_PATH = "checkpoints/resnet18_best.pt"
-DEFAULT_TOPK = 5
+MODEL_NAME = os.getenv("MODEL_NAME", "resnet18")
+CKPT_PATH = os.getenv("CKPT_PATH", "checkpoints/resnet18_best.pt")
+DEFAULT_TOPK = int(os.getenv("TOPK", "5"))
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model: Optional[nn.Module] = None

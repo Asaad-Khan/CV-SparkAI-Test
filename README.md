@@ -115,6 +115,17 @@ A minimal FastAPI service is provided for production-oriented inference.
 ```bash
 python -m pip install -r requirements.txt
 
+---
+
+## 7. Dockerized Inference Service (Optional)
+
+### Build
+```bash
+docker build -t flowers-api .
+
+### Run (mount checkpoints)  Windows example on port 8001
+```powershell
+docker run -p 8001:8000 -v "${PWD}\checkpoints:/app/checkpoints" flowers-api
 
 ## 3. Project Structure
 
