@@ -1,6 +1,6 @@
 # Oxford Flowers 102 End-to-End Computer Vision Project
 
-This repository implements a clean, end-to-end computer vision workflow (data inspection → training → evaluation → inference) under realistic compute constraints.
+This repository implements a clean, end-to-end computer vision workflow (data inspection -> training -> evaluation -> inference) under realistic compute constraints.
 
 ---
 
