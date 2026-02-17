@@ -18,7 +18,7 @@ Thumbs.db
 .idea/
 
 # Data / artifacts (do not commit)
-data/
+/data/
 checkpoints/
 reports/
 *.pt
